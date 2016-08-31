@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Console\Commands;
+namespace ArtisanPHPCS;
 
 use Config;
 use Illuminate\Console\Command;
 
-class LaravelPSR2 extends Command
+class ArtisanPHPCS extends Command
 {
     /**
      * The name and signature of the console command.
@@ -19,7 +19,7 @@ class LaravelPSR2 extends Command
      *
      * @var string
      */
-    protected $description = 'Run PSR-2 check on directory';
+    protected $description = 'Run PHPCS against defined directories';
 
     /**
      * Create a new command instance.
