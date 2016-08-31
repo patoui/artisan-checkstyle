@@ -1,10 +1,22 @@
 {
-    "name": "patoui/laravel-phpcs",
+    "name": "patoui/artisan-phpcs",
     "description": "Provides artisan command to run PHPCS against a directory",
     "type": "library",
     "require": {
+        "php": ">=5.5.9",
         "squizlabs/php_codesniffer": "^2.6"
     },
+    "authors": [
+        {
+            "name": "Patrique Ouimet",
+            "email": "patrique.ouimet@gmail.com"
+        }
+    ],
     "license": "MIT",
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-0": {
+            "src": "src/",
+        }
+    }
 }
