@@ -1,6 +1,6 @@
 <?php
 
-namespace ArtisanPHPCS;
+namespace ArtisanCheckStyle;
 
 use Config;
 use Illuminate\Console\Command;
