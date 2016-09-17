@@ -40,6 +40,9 @@ class ArtisanPHPCS extends Command
     public function handle()
     {
         $directories = implode(" ", Config::get('laravel-phpcs.directories'));
+        if (empty($directories)) {
+            $directories = ['app/*'];
+        }
         exec('phpcs --report=html --standard=PSR2 ' . $directories);
     }
 }
