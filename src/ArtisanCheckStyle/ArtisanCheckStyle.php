@@ -39,10 +39,9 @@ class ArtisanCheckstyle extends Command
      */
     public static function handle()
     {
-        $directories = implode(' ', Config::get('laravel-phpcs.directories', []));
-        if (empty($directories)) {
-            $directories = ['app/*'];
-        }
-        exec('vendor/bin/phpcs --report=html --standard=PSR2 ' . $directories);
+        $directories = Config::get('laravel-phpcs.directories', ['app/*']);
+        $directories = (empty($directories)) ? ['app/*'] : $directories;
+        $directories = implode(' ', $directories);
+        echo exec('vendor/bin/phpcs ' . $directories . ' --standard=PSR2');
     }
 }
