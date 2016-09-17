@@ -1,5 +1,5 @@
 {
-    "name": "patoui/artisan-phpcs",
+    "name": "patoui/artisan-checkstyle",
     "description": "Provides artisan command to run PHPCS against a directory",
     "type": "library",
     "require": {

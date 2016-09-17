@@ -5,7 +5,7 @@ namespace ArtisanPHPCS;
 use Config;
 use Illuminate\Console\Command;
 
-class ArtisanPHPCS extends Command
+class ArtisanCheckStyle extends Command
 {
     /**
      * The name and signature of the console command.
@@ -37,12 +37,12 @@ class ArtisanPHPCS extends Command
      *
      * @return mixed
      */
-    public function handle()
+    public static function handle()
     {
-        $directories = implode(" ", Config::get('laravel-phpcs.directories'));
+        $directories = implode(' ', Config::get('laravel-phpcs.directories', []));
         if (empty($directories)) {
             $directories = ['app/*'];
         }
-        exec('phpcs --report=html --standard=PSR2 ' . $directories);
+        exec('vendor/bin/phpcs --report=html --standard=PSR2 ' . $directories);
     }
 }

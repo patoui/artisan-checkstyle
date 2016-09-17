@@ -4,7 +4,7 @@ namespace ArtisanPHPCS;
 
 use Illuminate\Support\ServiceProvider;
 
-class ArtisanPHPCSProvider extends ServiceProvider
+class ArtisanCheckStyleServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
