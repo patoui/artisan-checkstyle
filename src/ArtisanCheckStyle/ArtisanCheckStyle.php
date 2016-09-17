@@ -1,11 +1,11 @@
 <?php
 
-namespace ArtisanCheckStyle;
+namespace ArtisanCheckstyle;
 
 use Config;
 use Illuminate\Console\Command;
 
-class ArtisanCheckStyle extends Command
+class ArtisanCheckstyle extends Command
 {
     /**
      * The name and signature of the console command.

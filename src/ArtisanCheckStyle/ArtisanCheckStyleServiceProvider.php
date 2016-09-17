@@ -1,10 +1,10 @@
 <?php
 
-namespace ArtisanCheckStyle;
+namespace ArtisanCheckstyle;
 
 use Illuminate\Support\ServiceProvider;
 
-class ArtisanCheckStyleServiceProvider extends ServiceProvider
+class ArtisanCheckstyleServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
