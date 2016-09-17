@@ -14,7 +14,7 @@ class ArtisanCheckstyleServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../config/artisan-phpcs.php' => config_path('artisan-phpcs.php'),
+            __DIR__.'/../../config/artisan-phpcs.php' => config_path('artisan-phpcs.php'),
         ]);
     }
 
