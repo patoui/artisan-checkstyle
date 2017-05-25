@@ -1,20 +1,21 @@
 <?php
 
-namespace ArtisanCheckstyle;
+namespace PatOui\Checkstyle\Console;
 
 use Illuminate\Console\Command;
 
-class ArtisanCheckstyle extends Command
+class CheckstyleCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'checkstyle:checkstyle';
+    protected $signature = 'checkstyle:run';
 
     /**
      * The console command description.
+     *
      *
      * @var string
      */

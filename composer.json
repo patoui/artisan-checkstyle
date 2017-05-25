@@ -16,8 +16,8 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "autoload": {
-        "psr-0": {
-            "ArtisanCheckstyle": "src/"
+        "psr-4": {
+            "PatOui\\Checkstyle": "src/"
         }
     }
 }

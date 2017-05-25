@@ -1,11 +1,11 @@
 <?php
 
-namespace ArtisanCheckstyle;
+namespace PatOui\Checkstyle;
 
-use ArtisanCheckstyle\ArtisanCheckstyle;
 use Illuminate\Support\ServiceProvider;
+use PatOui\Checkstyle\Console\CheckstyleCommand;
 
-class ArtisanCheckstyleServiceProvider extends ServiceProvider
+class CheckstyleServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -16,15 +16,15 @@ class ArtisanCheckstyleServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                ArtisanCheckstyle::class
+                CheckstyleCommand::class
             ]);
+            $this->publishes(
+                [
+                    __DIR__.'/../../configs/checkstyle.php' => config_path('checkstyle.php'),
+                ],
+                'checkstyle'
+            );
         }
-        $this->publishes(
-            [
-                __DIR__.'/../../configs/checkstyle.php' => config_path('checkstyle.php'),
-            ],
-            'checkstyle'
-        );
     }
 
     /**
