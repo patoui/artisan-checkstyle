@@ -3,7 +3,7 @@
 return [
 
 	'directories' => [
-		'app/*',
+		'app/Http/Controllers',
 	],
 
     'standard' => 'PSR2'

@@ -11,7 +11,7 @@ class ArtisanCheckstyle extends Command
      *
      * @var string
      */
-    protected $signature = 'checkstyle';
+    protected $signature = 'checkstyle:checkstyle';
 
     /**
      * The console command description.
@@ -32,8 +32,8 @@ class ArtisanCheckstyle extends Command
      */
     public static function handle()
     {
-        $standard = config('checkstyle.standard');
-        $directories = config('checkstyle.directories', ['app/*']);
+        $standard = config('checkstyle.standard', 'PSR2');
+        $directories = config('checkstyle.directories', ['app/']);
         if (empty($directories)) {
             throw new \Exception(
                 'Error: checkstyle.directories config is empty'
