@@ -2,7 +2,6 @@
 
 namespace ArtisanCheckstyle;
 
-use Config;
 use Illuminate\Console\Command;
 
 class ArtisanCheckstyle extends Command
@@ -21,12 +20,6 @@ class ArtisanCheckstyle extends Command
      */
     protected $description = 'Run PHPCS against defined directories';
 
-    /**
-     * Create a new command instance.
-     *
-     * @param  DripEmailer  $drip
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
@@ -39,9 +32,24 @@ class ArtisanCheckstyle extends Command
      */
     public static function handle()
     {
-        $directories = Config::get('laravel-phpcs.directories', ['app/*']);
-        $directories = (empty($directories)) ? ['app/*'] : $directories;
+        $standard = config('checkstyle.standard');
+        $directories = config('checkstyle.directories', ['app/*']);
+        if (empty($directories)) {
+            throw new \Exception(
+                'Error: checkstyle.directories config is empty'
+            );
+        }
+        foreach ($directories as $directory) {
+            if (! is_dir($directory)) {
+                throw new \Exception(
+                    'Error: \'' . $directory . '\' is not a directory'
+                );
+            }
+        }
         $directories = implode(' ', $directories);
-        echo exec('vendor/bin/phpcs ' . $directories . ' --standard=PSR2');
+        $output = shell_exec(
+            'vendor/bin/phpcs ' . $directories . ' --standard=' . $standard
+        );
+        echo $output;
     }
 }
